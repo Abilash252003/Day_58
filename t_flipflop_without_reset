@@ -1,0 +1,27 @@
+//100 Days of RTL//
+
+//Abilash P//
+
+//T flipflop without reset//
+
+module t_flipflop (CLK, T, Q, Qbar);
+  
+  input  CLK, T;
+  output reg Q, Qbar;
+  
+  initial
+    begin
+      Q    = 1'b0;
+    end
+  
+  always @ (posedge CLK)
+    begin
+      case(T)
+        1'b0   : Q =  Q;
+        1'b1   : Q = ~Q;
+        default: Q =  Q;
+      endcase
+    end
+  
+  assign  Qbar = ~Q;
+endmodule
